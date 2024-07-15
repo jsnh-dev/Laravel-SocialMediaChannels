@@ -7,3 +7,26 @@ $fa-font-path: '~fontawesome/webfonts';
 @import '~fontawesome/scss/regular';
 
 @import "~owl.carousel/dist/assets/owl.carousel.min.css";
+
+@import "general";
+@import "navigation";
+
+$body-background-color: #e9ecef;
+$body-color: #1e2125;
+$main-nav-background-color: #fff;
+$card-border-color: rgba(0, 0, 0, 0.175);
+
+@import "theme";
+
+main {
+  max-height: calc(100vh - 120px);
+  margin-top: 120px;
+  padding: 1rem;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+h1 {
+  font-size: 1.75rem !important;
+  margin: 0;
+}

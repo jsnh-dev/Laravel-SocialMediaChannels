@@ -1,0 +1,140 @@
+body {
+  background-color: $body-background-color;
+  color: $body-color;
+
+  h1 a, a.dropdown-item, a.nav-link, button {
+    color: $body-color !important;
+  }
+
+  #navTop {
+    background-color: $body-background-color;
+    .navbar-nav {
+      .nav-item {
+        &:hover, &.hover, &.active {
+          background-color: $main-nav-background-color;
+        }
+      }
+      .dropdown {
+        .dropdown-menu.show {
+          background-color: $main-nav-background-color;
+          color: $body-color;
+
+          .dropdown-menu.show {
+            background-color: $main-nav-background-color;
+          }
+
+          .dropdown-item:hover, .dropdown-item.active {
+            background-color: $body-background-color !important;
+          }
+          .nav-item.active {
+            .dropdown-item:focus {
+              background-color: $body-background-color;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  #navMain {
+    background-color: $main-nav-background-color;
+
+    .navbar-nav {
+      .nav-item {
+        .nav-link {
+          &.active, &:hover {
+            background-color: $body-background-color;
+          }
+        }
+      }
+    }
+
+    @media (max-width: 767px) {
+      .navbar-collapse {
+        background-color: $main-nav-background-color;
+        border-color: $body-background-color;
+      }
+    }
+  }
+
+  .nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+    background-color: $main-nav-background-color !important;
+  }
+
+  .card, .modal-content {
+    background-color: $main-nav-background-color;
+    color: $body-color;
+    border-color: $card-border-color !important;
+  }
+
+  .border, .border-bottom, .border-top, .border-start, .border-end {
+    &:not(.border-translucent):not(.border-secondary):not(.border-secondary-translucent) {
+      border-color: $body-background-color !important;
+    }
+  }
+
+  .border-top.border-main {
+    border-color: $main-nav-background-color !important;
+  }
+
+  .text-dark {
+    color: $body-color !important;
+  }
+
+  .border-dark {
+    border-color: $body-color !important;
+  }
+
+  .container.instagram {
+    .profile {
+      .profile-picture-wrapper {
+        .profile-picture-gradient {
+          .profile-picture {
+            background-color: $body-background-color;
+          }
+        }
+      }
+    }
+  }
+  .story-wrapper {
+    &.active {
+      .story-indicator {
+        background-color: $body-background-color;
+
+        .story-indicator-inner {
+          background-color: $body-color;
+        }
+      }
+    }
+  }
+
+  footer, span.feedback {
+    background-color: $main-nav-background-color;
+  }
+
+  .form-control, .form-control:focus, .form-select, .form-select:focus, .form-check-input, .form-check-input:focus {
+    background-color: $body-background-color;
+    color: $body-color;
+  }
+
+  .bg-body {
+    background-color: $body-background-color !important;
+  }
+
+  .btn-body {
+    background-color: $body-background-color !important;
+    color: $body-color !important;
+
+    &:hover {
+      background-color: darken($body-background-color, 5%) !important;
+    }
+  }
+
+  #twitchNav {
+    background-color: $body-background-color;
+  }
+  
+  .stream-tag {
+    background-color: #000;
+  }
+}
