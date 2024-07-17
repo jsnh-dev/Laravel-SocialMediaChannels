@@ -1,0 +1,62 @@
+.teaser {
+  .owl-carousel {
+    margin: -1rem;
+    margin-bottom: 1rem;
+    width: calc(100% + 2rem);
+
+    .owl-nav {
+      left: 0;
+      pointer-events: none;
+      .owl-prev {
+        margin-left: 1rem;
+        pointer-events: all;
+      }
+      .owl-next {
+        margin-right: 1rem;
+        pointer-events: all;
+      }
+    }
+
+    .owl-stage {
+      display: flex;
+      margin-bottom: 1rem;
+      .owl-item {
+        margin: 0 0 2rem;
+        padding: 0;
+        overflow: hidden;
+
+        @media (min-width: 768px) {
+          height: calc(400px + 4rem);
+        }
+
+        .profile-picture {
+          width: calc(100% - 2rem);
+          min-width: 200px;
+          max-width: 400px;
+          border-radius: 100%;
+          object-fit: contain;
+        }
+
+        .profile-picture-gradient {
+          min-width: 200px;
+          max-width: 400px;
+          min-height: 200px;
+          border-radius: 100%;
+          width: calc(100% - 2rem);
+          &.has-stories {
+            cursor: pointer;
+            background: linear-gradient(to right, red, orange);
+            padding: 0.25rem;
+          }
+          .profile-picture {
+            width: 100%;
+            padding: 0;
+            max-width: 400px;
+            min-width: 200px;
+            border-radius: 100%;
+          }
+        }
+      }
+    }
+  }
+}

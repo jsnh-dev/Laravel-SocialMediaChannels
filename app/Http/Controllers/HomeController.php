@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\XProfile;
 
 class HomeController extends Controller
 {
@@ -12,5 +12,19 @@ class HomeController extends Controller
     public function index(): \Illuminate\Contracts\View\View
     {
         return view('home.index');
+    }
+
+    /**
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function teaser(): \Illuminate\Http\JsonResponse
+    {
+        $profile = new \stdClass();
+
+        $profile->x = XProfile::first();
+
+        return response()->json([
+            'view' => view('home.teaser')->with(['profile' => $profile])->render()
+        ]);
     }
 }

@@ -28,5 +28,12 @@
             </main>
         </div>
 
+        @include('elements.modal', [
+            'id' => 'shareModal',
+            'title' => 'Share content',
+            'class' => 'centered',
+            'bodyClass' => 'p-0'
+        ])
+
     </body>
 </html>

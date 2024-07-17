@@ -10,7 +10,8 @@
         "ext-intl": "*",
         "laravel/framework": "^11.9",
         "laravel/tinker": "^2.9",
-        "pusher/pusher-php-server": "^7.2"
+        "pusher/pusher-php-server": "^7.2",
+        "ext-json": "*"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.13",

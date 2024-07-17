@@ -31,7 +31,8 @@ class NavigationItem
     public static function all(): \Illuminate\Support\Collection
     {
         $array = [
-            new self(['name' => 'Homepage', 'route' => 'home'])
+            new self(['name' => 'Homepage', 'route' => 'home']),
+            new self(['name' => 'X', 'route' => 'x', 'before' => '<i class="fa-brands fa-x-twitter me-2"></i>'])
         ];
 
         $collection = collect($array);
