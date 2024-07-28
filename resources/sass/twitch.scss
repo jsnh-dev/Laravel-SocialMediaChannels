@@ -1,0 +1,310 @@
+$twitch-color: #a970ff;
+
+@import "post";
+
+.twitch {
+
+  #twitchNav {
+    height: 40px;
+    margin: 0 -1rem;
+    padding: 0 1rem;
+    z-index: 1;
+    .nav {
+      height: 100%;
+      .nav-item {
+        height: 100%;
+        .content-navbar-button {
+          display: flex;
+          align-items: center;
+          height: 100%;
+          font-weight: 900;
+          &.twitch-link {
+            &.active {
+              color: #9146ff !important;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .profile-content {
+    margin: -1rem;
+    padding-top: 40px;
+    .profile-picture-wrapper {
+      position: relative;
+      background-color: $twitch-color;
+      padding: 3px;
+      width: 70px;
+      height: 70px;
+      border-radius: 100%;
+      .profile-picture {
+        width: 64px;
+        height: 64px;
+        border-radius: 100%;
+      }
+      .profile-picture-flag {
+        position: absolute;
+        bottom: -0.5rem;
+        left: 50%;
+        transform: translate(-50%, 0);
+        height: 1.4rem;
+        background-color: #eb0400;
+        color: white;
+        border-radius: 0.25rem;
+        padding: 0 0.4rem;
+        font-size: 0.8rem;
+        font-weight: 900;
+        display: flex;
+        align-items: center;
+      }
+    }
+    .stream-tag {
+      padding: 0 1rem;
+      background-color: rgba(108, 117, 125, 0.3) !important;
+      border-radius: 9000px;
+    }
+  }
+
+  .stream-wrapper, .schedule-wrapper, .videos-wrapper {
+    height: calc(100vh - 160px);
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  .player {
+    position: relative;
+    #liveStreamPlayer {
+      display: flex;
+      min-height: 50vh;
+      max-height: calc(100vh - 160px);
+      max-width: 100%;
+      flex: 1;
+    }
+  }
+
+  #liveChatParent {
+    position: fixed;
+    top: 0;
+    right: 0;
+    transition: all 0.3s;
+    width: 340px;
+    height: calc(100% - 160px);
+    margin-top: 160px;
+    @media (max-width: 767px) {
+      width: 100%;
+    }
+  }
+
+  .twitch-chat-placeholder {
+    width: 340px;
+    height: 100%;
+    transition: all 0.3s;
+    @media (max-width: 767px) {
+      width: 100%;
+    }
+  }
+
+  .videos {
+    &.chat-inactive {
+      .post-wrapper {
+        width: calc(20% - 1rem);
+      }
+    }
+    .post-wrapper {
+      width: calc(25% - 1rem);
+      transition: width 0.3s;
+      margin: 0 0.5rem;
+      .post-overlay-metrics {
+        position: absolute;
+        color: white;
+        background-color: rgba(0,0,0,0.7);
+        font-size: 0.8rem;
+        padding: 0 0.25rem;
+        border-radius: 0.25rem;
+
+        &.post-duration {
+          top: 0.5rem;
+          left: 0.5rem;
+        }
+
+        &.post-view-count {
+          bottom: 0.5rem;
+          left: 0.5rem;
+        }
+
+        &.post-time-ago {
+          bottom: 0.5rem;
+          right: 0.5rem;
+        }
+      }
+    }
+
+    @media (max-width: 1199px) {
+      &.chat-inactive {
+        .post-wrapper {
+          width: calc(25% - 1rem);
+        }
+      }
+      .post-wrapper {
+        width: calc(100% / 3 - 1rem);
+      }
+    }
+
+    @media (max-width: 991px) {
+      &.chat-inactive {
+        .post-wrapper {
+          width: calc(100% / 3 - 1rem);
+        }
+      }
+      .post-wrapper {
+        width: calc(50% - 1rem);
+      }
+    }
+
+    @media (max-width: 767px) {
+      &.chat-inactive {
+        .post-wrapper {
+          width: calc(50% - 1rem);
+        }
+      }
+      .post-wrapper {
+        width: calc(50% - 1rem);
+      }
+    }
+
+    @media (max-width: 575px) {
+      &.chat-inactive {
+        .post-wrapper {
+          width: calc(100% - 1rem);
+        }
+      }
+      .post-wrapper {
+        width: calc(100% - 1rem);
+      }
+    }
+  }
+
+  .post-image {
+    display: inline-block;
+    background-color: $twitch-color;
+  }
+
+  .post-image:before,
+  .post-image:after {
+    display: block;
+    background-color: $twitch-color;
+    width: 8px;
+    height: 8px;
+    position: absolute;
+    transition: all .15s ease;
+  }
+
+  .post-image:before {
+    top: 0;
+    left: 0;
+    transform-origin: top left;
+    transform: rotate(-45deg) scale(0);
+  }
+
+  .post-image:after {
+    right: 0;
+    bottom: 0;
+    transform-origin: bottom right;
+    transform: rotate(45deg) scale(0);
+  }
+
+  .post-image img {
+    display: block;
+    transform: translate(0, 0);
+    transition: all .15s ease;
+    z-index: 10;
+  }
+
+  .post-image:hover img {
+    transform: translate(6px, -6px);
+  }
+
+  .post-image:hover:before {
+    transform: rotate(-45deg) scale(1);
+  }
+
+  .post-image:hover:after {
+    transform: rotate(45deg) scale(1);
+  }
+
+  .schedule {
+
+    .calendar-nav {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .calendar-nav button {
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      font-weight: 900;
+      border-radius: 0.25rem;
+      &.calendar-nav-today {
+        background-color: $twitch-color;
+        &:hover {
+          background-color: darken($twitch-color, 5%);
+          opacity: 0.9;
+        }
+      }
+      &:hover {
+        background-color: rgba(108, 117, 125, 0.3);
+      }
+    }
+
+    .calendar-nav button:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+
+    .event {
+      cursor: pointer;
+      background-color: $twitch-color;
+      color: white;
+      border-radius: 0.5rem;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      &:hover {
+        background-color: darken($twitch-color, 5%);
+        opacity: 0.9;
+      }
+    }
+
+    .table {
+      table-layout: fixed;
+      border-radius: 0.5rem;
+      box-shadow: 1px 1px 0 rgba(108, 117, 125, 0.3), -1px -1px 0 rgba(108, 117, 125, 0.3), 1px -1px 0 rgba(108, 117, 125, 0.3), -1px 1px 0 rgba(108, 117, 125, 0.3);
+
+      th {
+        background-color: rgba(108, 117, 125, 0.2);
+        overflow: hidden;
+      }
+      td {
+        height: 6rem;
+        &.calendar-day {
+          background-color: rgba(108, 117, 125, 0.2);
+          padding: 0.5rem;
+          text-align: center;
+        }
+      }
+      .today {
+        td {
+          background-color: rgba(108, 117, 125, 0.2);
+          &.calendar-day {
+            background-color: rgba(108, 117, 125, 0.3);
+            border-right: 2px solid $twitch-color;
+            box-shadow: 2px 0 0 $twitch-color;
+          }
+        }
+      }
+    }
+  }
+}

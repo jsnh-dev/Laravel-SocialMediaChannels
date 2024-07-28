@@ -12,7 +12,7 @@
             <div class="profile-contact col-12 p-3 d-flex align-items-center hide-for-small-down">
                 <button type="button"
                         class="share-trigger btn profile-message-button text-dark text-decoration-none ms-auto me-2 px-3 py-2 text-hover"
-                        title="{{ 'Share' }}"
+                        title="{{ __('Share') }}"
                         data-route="{{ route('x.profile.share') }}">
                     <i class="fa-regular fa-paper-plane"></i>
                 </button>
@@ -20,7 +20,7 @@
                 <a href="https://x.com/{{ $profile->screen_name }}"
                    class="profile-message-button text-dark text-decoration-none me-2 px-3 py-2 text-hover"
                    target="_blank"
-                   title="{{ 'Send message' }}"
+                   title="{{ __('Send message') }}"
                    type="button">
                     <i class="fa fa-envelope"></i>
                 </a>
@@ -29,12 +29,12 @@
                    class="profile-follow-button text-dark text-decoration-none me-2 px-3 py-2 border border-secondary-translucent text-hover"
                    target="_blank"
                    type="button">
-                    {{ 'Follow' }}
+                    {{ __('Follow') }}
                 </a>
 
                 <a href="https://www.x.com/{{ $profile->screen_name }}/"
                    class="text-dark text-hover p-2 ps-3"
-                   title="{{ 'Open profile on X' }}"
+                   title="{{ __('Open profile on X') }}"
                    target="_blank">
                     <i class="fa-solid fa-arrow-up-right-from-square"></i>
                 </a>
@@ -53,7 +53,7 @@
                 <div class="profile-contact ms-auto d-flex align-items-center hide-for-medium-up">
                     <button type="button"
                             class="share-trigger btn profile-message-button text-dark text-decoration-none ms-auto me-2 px-3 py-2 text-hover"
-                            title="{{ 'Share' }}"
+                            title="{{ __('Share') }}"
                             data-route="{{ route('x.profile.share') }}">
                         <i class="fa-regular fa-paper-plane"></i>
                     </button>
@@ -61,7 +61,7 @@
                     <a href="https://x.com/{{ $profile->screen_name }}"
                        class="profile-message-button text-dark text-decoration-none ms-auto me-2 px-3 py-2 text-hover"
                        target="_blank"
-                       title="{{ 'Send message' }}"
+                       title="{{ __('Send message') }}"
                        type="button">
                         <i class="fa fa-envelope"></i>
                     </a>
@@ -70,12 +70,12 @@
                        class="profile-follow-button text-dark text-decoration-none me-2 px-3 py-2 border border-secondary-translucent text-hover"
                        target="_blank"
                        type="button">
-                        {{ 'Follow' }}
+                        {{ __('Follow') }}
                     </a>
 
                     <a href="https://www.x.com/{{ $profile->screen_name }}/"
                        class="text-dark text-hover p-2 ps-3"
-                       title="{{ 'Open profile on X' }}"
+                       title="{{ __('Open profile on X') }}"
                        target="_blank">
                         <i class="fa-solid fa-arrow-up-right-from-square"></i>
                     </a>
@@ -114,16 +114,16 @@
 
                 <div class="text-secondary me-3">
                     <i class="fa fa-calendar-days me-1"></i>
-                    {{ 'Joined ' . \Carbon\Carbon::parse($profile->created_at)->format('F Y') }}
+                    {{ __('Joined ' . \Carbon\Carbon::parse($profile->created_at)->format('F Y')) }}
                 </div>
 
             </div>
 
             <div class="d-flex">
                 <span class="me-1">{{ $profile->friends_count }}</span>
-                <span class="text-secondary me-3">{{ 'Following'  }}</span>
+                <span class="text-secondary me-3">{{ __('Following')  }}</span>
                 <span class="me-1">{{ $profile->followers_count }}</span>
-                <span class="text-secondary me-3">{{ 'Followers'  }}</span>
+                <span class="text-secondary me-3">{{ __('Followers')  }}</span>
             </div>
         </div>
     </div>

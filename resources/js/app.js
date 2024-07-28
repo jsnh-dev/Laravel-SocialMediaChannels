@@ -3,7 +3,23 @@ import $ from './jquery';
 import 'owl.carousel';
 import ClipboardJS from "clipboard";
 
+window.token = $('meta[name="csrf-token"]').attr('content');
 window.appUrl = $('meta[name="app-url"]').attr('content');
+
+$.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': token
+    },
+});
+
+Echo.channel('twitch.stream')
+    .listen('.update', (data) => {
+        if (data.stream) {
+            $('.twitch-live-indicator').removeClass('d-none');
+        } else {
+            $('.twitch-live-indicator').addClass('d-none');
+        }
+    });
 
 $(document).ready(function () {
 
@@ -25,6 +41,10 @@ $(document).ready(function () {
             initClipboardAsCallback,
             '#copyShareLink'
         );
+    });
+
+    document.getElementById('shareModal').addEventListener('hidden.bs.modal', function () {
+        $('.modal.show:not(#shareModal)').removeClass('z-index-1001');
     });
 
 });
@@ -77,12 +97,62 @@ window.openModalByScript = function openModalByScript(id) {
     myModal.show();
 }
 
+window.ajaxLoaderInfinityUrls = {};
+window.ajaxLoaderInfinityTriggered = {};
+
 window.infinityLoaderElement = function infinityLoaderElement(id) {
     return $(
         '<div id="' + id + '" class="infinity-loader">' +
         '   <i class="fa-solid fa-spinner fa-spin fa-2x"></i>' +
         '</div>'
     );
+}
+
+window.infinityLoaderInit = function infinityLoaderInit(scroller, wrapper, adding, loader, callback, callbackParams) {
+
+    $(scroller).unbind('scroll');
+
+    $(scroller).scroll(function() {
+
+        if ($(scroller).scrollTop() + $(scroller).height() + 200 >= $(wrapper).height() + adding) {
+
+            infinityLoaderCall(scroller, wrapper, loader, callback, callbackParams);
+        }
+    });
+
+    $(scroller).scroll();
+}
+
+window.infinityLoaderCall = function infinityLoaderCall(scroller, wrapper, loader, callback, callbackParams) {
+
+    if (!ajaxLoaderInfinityTriggered[loader]) {
+        ajaxLoaderInfinityTriggered[loader] = true;
+
+        ajaxLoaderCall(
+            wrapper,
+            loader,
+            ajaxLoaderInfinityUrls[loader],
+            callback ?? infinityLoaderPaginate,
+            callbackParams ?? scroller
+        );
+    }
+}
+
+window.infinityLoaderPaginate = function infinityLoaderPaginate(response, wrapper, loader, url, scroller) {
+
+    if (Object.hasOwn(response, 'data')) {
+        if (Object.hasOwn(response.data, 'current_page')) {
+            if (response.data.current_page < response.data.last_page) {
+
+                ajaxLoaderInfinityUrls[loader] = response.data.next_page_url;
+                ajaxLoaderInfinityTriggered[loader] = false;
+
+                if (scroller) {
+                    $(scroller).scroll();
+                }
+            }
+        }
+    }
 }
 
 window.ajaxLoaderCall = function ajaxLoaderCall(wrapperSelector, loaderId, url, callback, callbackParams) {
@@ -108,3 +178,7 @@ window.ajaxLoaderCall = function ajaxLoaderCall(wrapperSelector, loaderId, url, 
         }
     });
 }
+
+window.elementHtml = function elementHtml(el) {
+    return $('<div />').append(el.eq(0).clone()).html();
+};

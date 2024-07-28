@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\TwitchProfile;
 use App\Models\XProfile;
 
 class HomeController extends Controller
@@ -22,6 +23,7 @@ class HomeController extends Controller
         $profile = new \stdClass();
 
         $profile->x = XProfile::first();
+        $profile->twitch = TwitchProfile::first();
 
         return response()->json([
             'view' => view('home.teaser')->with(['profile' => $profile])->render()

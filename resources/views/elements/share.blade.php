@@ -23,8 +23,8 @@
                                 data-clipboard-target="#shareLink">
                             <i class="fa fa-copy text-dark"></i>
                         </button>
-                        <span class="feedback success border border-secondary d-none">{{ 'Copied' }}</span>
-                        <span class="feedback error border border-secondary d-none">{{ 'Copy failed' }}</span>
+                        <span class="feedback success border border-secondary d-none">{{ __('Copied') }}</span>
+                        <span class="feedback error border border-secondary d-none">{{ __('Copy failed') }}</span>
                     </div>
                 </h5>
             </div>

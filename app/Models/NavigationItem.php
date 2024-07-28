@@ -32,7 +32,8 @@ class NavigationItem
     {
         $array = [
             new self(['name' => 'Homepage', 'route' => 'home']),
-            new self(['name' => 'X', 'route' => 'x', 'before' => '<i class="fa-brands fa-x-twitter me-2"></i>'])
+            new self(['name' => 'X', 'route' => 'x', 'before' => '<i class="fa-brands fa-x-twitter me-2"></i>']),
+            new self(['name' => 'Twitch', 'route' => 'twitch', 'before' => '<i class="fa-brands fa-twitch me-2"></i>', 'after' => '<div class="nav-item-flag-dot twitch-live-indicator ms-2 ' . (TwitchStream::first() ? '' : 'd-none') . '"></div>']),
         ];
 
         $collection = collect($array);

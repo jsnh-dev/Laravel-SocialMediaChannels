@@ -21,10 +21,10 @@
                         {{ $profile->description }}
                     </div>
                     <h2 class="d-flex align-items-center">
-                        <a class="btn btn-primary font-weight-900" href="{{ 'x' }}">
+                        <a class="btn btn-primary font-weight-900" href="{{ route('x') }}">
                             <div class="font-size-125rem m-2">
                                 <i class="fa-brands fa-x-twitter text-white"></i>
-                                <span class="mx-2">{{ 'View X profile' }}</span>
+                                <span class="mx-2">{{ __('View X profile') }}</span>
                                 <i class="fa fa-arrow-right"></i>
                             </div>
                         </a>
