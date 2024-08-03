@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\TwitchProfile;
 use App\Models\XProfile;
+use App\Models\YoutubeProfile;
 
 class HomeController extends Controller
 {
@@ -24,6 +25,7 @@ class HomeController extends Controller
 
         $profile->x = XProfile::first();
         $profile->twitch = TwitchProfile::first();
+        $profile->youtube = YoutubeProfile::first();
 
         return response()->json([
             'view' => view('home.teaser')->with(['profile' => $profile])->render()

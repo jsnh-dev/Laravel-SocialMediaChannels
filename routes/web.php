@@ -21,3 +21,15 @@ Route::get('/twitch/video/{id}', [App\Http\Controllers\TwitchController::class, 
 Route::get('/twitch/video/{id}/share', [App\Http\Controllers\TwitchController::class, 'shareVideo'])->name('twitch.video.share');
 Route::post('/twitch/chat/toggle', [App\Http\Controllers\TwitchController::class, 'toggleChat'])->name('twitch.chat.toggle');
 Route::post('/twitch/videos/filter', [App\Http\Controllers\TwitchController::class, 'filterVideos'])->name('twitch.videos.filter');
+
+Route::get('/youtube', [App\Http\Controllers\YoutubeController::class, 'index'])->name('youtube');
+Route::get('/youtube/profile', [App\Http\Controllers\YoutubeController::class, 'profile'])->name('youtube.profile');
+Route::get('/youtube/profile/share', [App\Http\Controllers\YoutubeController::class, 'shareProfile'])->name('youtube.profile.share');
+Route::get('/youtube/videos', [App\Http\Controllers\YoutubeController::class, 'videos'])->name('youtube.videos');
+Route::get('/youtube/video/{id}', [App\Http\Controllers\YoutubeController::class, 'video'])->name('youtube.video');
+Route::get('/youtube/video/{id}/comments', [App\Http\Controllers\YoutubeController::class, 'comments'])->name('youtube.video.comments');
+Route::get('/youtube/video/{videoId}/comment/{id}/replies', [App\Http\Controllers\YoutubeController::class, 'replies'])->name('youtube.video.comment.replies');
+Route::get('/youtube/video/{id}/share', [App\Http\Controllers\YoutubeController::class, 'shareVideo'])->name('youtube.video.share');
+Route::get('/youtube/playlists', [App\Http\Controllers\YoutubeController::class, 'playlists'])->name('youtube.playlists');
+Route::get('/youtube/playlist/{id}', [App\Http\Controllers\YoutubeController::class, 'playlist'])->name('youtube.playlist');
+Route::get('/youtube/playlist/{id}/share', [App\Http\Controllers\YoutubeController::class, 'sharePlaylist'])->name('youtube.playlist.share');

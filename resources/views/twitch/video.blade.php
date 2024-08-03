@@ -55,11 +55,7 @@
 
             <button type="button"
                     class="share-trigger btn p-0 text-nowrap text-dark text-decoration-none text-hover mx-2"
-                    @if(isset($home) && $home)
-                    data-route="{{ route('home.post.share', ['type' => 'twitch', 'id' => $video->twitch_id]) }}"
-                    @else
                     data-route="{{ route('twitch.video.share', ['id' => $video->twitch_id]) }}"
-                    @endif
                     title="{{ __('Share') }}">
                 <i class="fa-solid fa-arrow-up-from-bracket"></i>
             </button>

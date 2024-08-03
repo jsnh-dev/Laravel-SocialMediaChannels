@@ -309,9 +309,8 @@ function renderScheduleCalendar(data, date) {
                             </div>
                         </a>
                     </td>
-                @if($video->game)
-                @endif
                 `);
+
                 calendarContentRow.append(eventElement);
 
                 columns.some(function (value, index, array) {

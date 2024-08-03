@@ -89,3 +89,28 @@ if (! function_exists('countString')) {
         return $string;
     }
 }
+
+if (! function_exists('textToHtml')) {
+    /**
+     * @param string $text
+     * @return string
+     */
+    function textToHtml(string $text): string
+    {
+        $text = str_replace("\n", ' <br> ', $text);
+
+        preg_match_all('#\bhttps?://[^,\s()<>]+(?:\([\w\d]+\)|([^,[:punct:]\s]|/))#', $text, $matches);
+
+        $urls = [];
+        foreach ($matches[0] as $key => $match) {
+            if ($key == array_key_last($matches[0])) {
+                $text = str_replace($match, '', $text);
+            } else {
+                $text = str_replace($match, '<a href="'.$match.'" target="_blank" title="'.__('open').'">'.$match.'</a>', $text);
+                $urls[] = $match;
+            }
+        }
+
+        return $text;
+    }
+}
