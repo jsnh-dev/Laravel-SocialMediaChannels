@@ -110,7 +110,7 @@ function initTabs() {
                             ? initSchedule
                             : undefined )
                 );
-                $(window).trigger('resize');
+                window.dispatchEvent(new Event('resize'));
             });
         });
 
@@ -138,7 +138,7 @@ function initStream() {
     if ($('#liveStreamPlayer').length && typeof Twitch != 'undefined') {
         calcStreamDuration();
 
-        $(window).trigger('resize');
+        window.dispatchEvent(new Event('resize'));
 
         var muted = false;
         var embed = new Twitch.Embed("liveStreamPlayer", {

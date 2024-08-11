@@ -40,7 +40,7 @@ $(document).ready(function () {
     });
 
     $(document).on('click', '.post-nav.post-previous .post-nav-button', function () {
-        var el = $('.post-wrapper[data-id="' + $('.post-details-wrapper:visible').data('id') + '"]:visible').prevAll('a.post-wrapper').last();
+        var el = $('.post-wrapper[data-id="' + $('.post-details-wrapper:visible').data('id') + '"]:visible').prevAll('a.post-wrapper').first();
 
         if (el.length && el.hasClass('post-wrapper')) {
             initPostModalTrigger(el);
@@ -207,7 +207,7 @@ window.initPostNav = function initPostNav(response, wrapperSelector, loaderSelec
         $('.post-nav.post-next').addClass('d-none');
     }
 
-    let previous = $('.post-wrapper[data-id="' + trigger.data('id') + '"]:visible').prevAll('a.post-wrapper').last();
+    let previous = $('.post-wrapper[data-id="' + trigger.data('id') + '"]:visible').prevAll('a.post-wrapper').first();
 
     if (previous.length && previous.hasClass('post-wrapper')) {
         $('.post-nav.post-previous').removeClass('d-none');

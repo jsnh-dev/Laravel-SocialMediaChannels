@@ -33,3 +33,16 @@ Route::get('/youtube/video/{id}/share', [App\Http\Controllers\YoutubeController:
 Route::get('/youtube/playlists', [App\Http\Controllers\YoutubeController::class, 'playlists'])->name('youtube.playlists');
 Route::get('/youtube/playlist/{id}', [App\Http\Controllers\YoutubeController::class, 'playlist'])->name('youtube.playlist');
 Route::get('/youtube/playlist/{id}/share', [App\Http\Controllers\YoutubeController::class, 'sharePlaylist'])->name('youtube.playlist.share');
+
+Route::get('/instagram', [App\Http\Controllers\InstagramController::class, 'index'])->name('instagram');
+Route::get('/instagram/profile', [App\Http\Controllers\InstagramController::class, 'profile'])->name('instagram.profile');
+Route::get('/instagram/profile/share', [App\Http\Controllers\InstagramController::class, 'shareProfile'])->name('instagram.profile.share');
+Route::get('/instagram/stories', [App\Http\Controllers\InstagramController::class, 'stories'])->name('instagram.stories');
+Route::get('/instagram/posts', [App\Http\Controllers\InstagramController::class, 'posts'])->name('instagram.posts');
+Route::get('/instagram/post/{id}', [App\Http\Controllers\InstagramController::class, 'post'])->name('instagram.post');
+Route::get('/instagram/post/{id}/comments', [App\Http\Controllers\InstagramController::class, 'comments'])->name('instagram.post.comments');
+Route::get('/instagram/post/{postId}/comment/{id}/replies', [App\Http\Controllers\InstagramController::class, 'replies'])->name('instagram.post.comment.replies');
+Route::get('/instagram/post/{id}/share', [App\Http\Controllers\InstagramController::class, 'sharePost'])->name('instagram.post.share');
+Route::get('/instagram/reels', [App\Http\Controllers\InstagramController::class, 'reels'])->name('instagram.reels');
+Route::get('/instagram/reel/{id}', [App\Http\Controllers\InstagramController::class, 'reel'])->name('instagram.reel');
+Route::get('/instagram/reel/{id}/share', [App\Http\Controllers\InstagramController::class, 'shareReel'])->name('instagram.reel.share');

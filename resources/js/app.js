@@ -47,7 +47,23 @@ $(document).ready(function () {
         $('.modal.show:not(#shareModal)').removeClass('z-index-1001');
     });
 
+    $(window).on('resize', function () {
+        resizeApp();
+    });
+
 });
+
+window.resizeApp = function resizeApp() {
+    $('.square').each(function() {
+        $(this).height($(this).width());
+    });
+    $('.format9x16').each(function() {
+        $(this).height($(this).width() * 16 / 9);
+    });
+    $('.format16x9').each(function() {
+        $(this).height($(this).width() * 9 / 16);
+    });
+}
 
 window.initOwl = function initOwl() {
     $(".owl-carousel:not(.owl-loaded)").each(function() {
@@ -169,8 +185,8 @@ window.ajaxLoaderCall = function ajaxLoaderCall(wrapperSelector, loaderId, url, 
             $(wrapperSelector).append(response.view);
 
             setTimeout(() => {
-                $(window).trigger('resize');
-            }, '200');
+                window.dispatchEvent(new Event('resize'));
+            }, 200);
 
             if (callback) {
                 callback(response, wrapperSelector, loaderId, url, callbackParams);

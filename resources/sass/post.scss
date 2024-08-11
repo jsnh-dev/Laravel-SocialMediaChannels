@@ -117,8 +117,7 @@
     align-items: start;
 
     .post-details-image {
-      max-height: 100%;
-      height: auto;
+      height: 100%;
       object-fit: contain;
       z-index: 1;
       @media (max-width: 767px) {
@@ -128,6 +127,11 @@
       }
       @media (min-width: 768px) {
         max-width: 50%;
+      }
+    }
+    .owl-image .background-blur-wrapper {
+      @media (min-width: 768px) {
+        display: block;
       }
     }
     .background-blur-wrapper {

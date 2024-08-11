@@ -1,0 +1,33 @@
+@import "post";
+
+@import "story";
+
+.container.instagram {
+
+
+  .profile {
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    .profile-picture-wrapper {
+      min-width: calc(300px + 2rem);
+    .profile-picture-gradient {
+      min-width: 300px;
+      max-width: 500px;
+      min-height: 300px;
+      border-radius: 100%;
+      &.has-stories {
+        cursor: pointer;
+        background: linear-gradient(to right, red, orange);
+        padding: 0.25rem;
+      }
+        .profile-picture {
+          width: 100%;
+          max-width: 500px;
+          min-width: 300px;
+          border-radius: 100%;
+        }
+      }
+    }
+  }
+}

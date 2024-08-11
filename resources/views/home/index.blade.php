@@ -1,9 +1,5 @@
 @extends('layouts.app')
 
-@section('title')
-    - Homepage
-@endsection
-
 @section('script')
     @vite(['resources/js/home.js'])
 @endsection
