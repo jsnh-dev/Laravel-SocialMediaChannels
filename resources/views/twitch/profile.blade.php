@@ -41,6 +41,15 @@
                 </span>
             @endif
 
+            <a class="btn btn-twitch font-weight-600 me-4 hide-for-small-down"
+               href="https://www.twitch.tv/{{ env('TWITCH_LOGIN') }}"
+               target="_blank">
+                <div>
+                    <i class="fa-regular fa-heart text-white"></i>
+                    <span class="mx-2">{{ __('Follow') }}</span>
+                </div>
+            </a>
+
             <button type="button"
                     class="share-trigger btn p-0 text-nowrap text-dark text-decoration-none text-hover me-4"
                     title="{{ __('Share') }}"

@@ -1,14 +1,28 @@
 @if(isset($profile) && $profile)
     <div class="flex-1 d-flex flex-column position-relative">
         <div class="profile-url col-12 d-flex position-absolute left-0 top-075 hide-for-small-down">
+            <a class="btn btn-primary font-weight-600 d-flex ms-auto me-4"
+               href="https://www.instagram.com/{{ $profile->username }}/"
+               target="_blank">
+                <span class="m-auto">
+                {{ __('Follow') }}
+                </span>
+            </a>
+            <a class="btn btn-secondary font-weight-600 d-flex me-4"
+               href="https://www.instagram.com/{{ $profile->username }}/"
+               target="_blank">
+                <span class="m-auto">
+                {{ __('Message') }}
+                </span>
+            </a>
             <button type="button"
-                    class="share-trigger btn text-dark text-hover ms-auto p-0 me-4"
+                    class="share-trigger btn text-dark text-hover p-0 me-4 d-flex align-items-center"
                     title="{{ __('Share') }}"
                     data-route="{{ route('instagram.profile.share') }}">
                 <i class="fa-regular fa-paper-plane"></i>
             </button>
             <a href="https://www.instagram.com/{{ $profile->username }}/"
-               class="text-dark text-hover"
+               class="text-dark text-hover d-flex align-items-center"
                title="{{ __('Open profile on Instagram') }}"
                target="_blank">
                 <i class="fa-solid fa-arrow-up-right-from-square"></i>
