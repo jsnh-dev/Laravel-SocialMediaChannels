@@ -1,66 +1,140 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+<small>Author: Janic Scheinhardt (info@jsnh.dev)</small><br>
+<small>Created: 2024-08-31</small><br>
+<small>Last update: 2024-08-31</small>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+# Permissions
 
-## About Laravel
+After installing Laravel, you may need to configure some permissions.
+Directories within the <b>storage</b> and the <b>bootstrap/cache</b> directories should be writable by your web server or Laravel will not run.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+> sudo chgrp www-data storage/ bootstrap/cache/ -R<br>
+> sudo chmod g+ws storage/ bootstrap/cache/ -R
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+# Project Settings
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Install Vendor dependencies via:
 
-## Learning Laravel
+> composer install
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Install NPM dependencies via:
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+> npm install
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Compile your fresh scaffolding by running:
 
-## Laravel Sponsors
+> npm run dev
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+Create the <b>.env</b>-file and generate an app key with:
 
-### Premium Partners
+> php artisan key:generate
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+Define your database. 
 
-## Contributing
+```
+DB_CONNECTION=
+DB_HOST=
+DB_PORT=
+DB_DATABASE=
+DB_USERNAME=
+DB_PASSWORD=
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Then use the migration script to migrate all tables.
 
-## Code of Conduct
+> php artisan migrate<br>
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Now, your project should already be accessible in the browser.  
 
-## Security Vulnerabilities
+# API Settings
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+To fill your website with data, you need to setup the desired APIs.
 
-## License
+### X
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Create an account on the Developer Platform for X (https://developer.x.com). Navigate to the Developer Portal to create a new project. Get your API keys and define them in the <b>.env</b>-file.
+
+```
+X_API_KEY=
+X_API_KEY_SECRET=
+X_ACCESS_TOKEN=
+X_ACCESS_TOKEN_SECRET=
+```
+
+For embedding your timeline you need to define your username.
+
+```
+X_SCREEN_NAME=
+```
+
+To initialize your X data run:
+
+> php artisan app:x
+
+
+### Twitch
+
+Create an account for Twitch Developers (https://dev.twitch.tv/) and inside the Developer Console (https://dev.twitch.tv/console) create your application. Get a Client ID and a Client Secret to create a Bearer Token and define them in your <b>.env</b>-file.
+
+```
+TWITCH_CLIENT_ID=
+TWITCH_BEARER_TOKEN=
+```
+
+Further, you need to define your username for the API calls and for embedding the live stream and chat.
+
+```
+TWITCH_LOGIN=
+```
+
+To initialize your Twitch data run:
+
+> php artisan app:twitch
+
+### YouTube
+
+Sign up for YouTube API in the Google Developer Console (https://console.cloud.google.com). Create a project, get your API key and define it in your <b>.env</b>-file.
+
+```
+YOUTUBE_API_KEY=
+```
+
+Set your YouTube Channel ID.
+
+```
+YOUTUBE_ID=
+```
+
+Due to API restrictions, you must define two additional mandatory variables. With this setting you will be able to synchronize a maximum of 2400 videos with 100 comments (plus their replies) without running into restriction errors. 
+
+```
+YOUTUBE_MAX_VIDEOS=2400
+YOUTUBE_MAX_COMMENTS=100
+```
+
+To initialize your YouTube data run:
+
+> php artisan app:youtube
+
+### Instagram
+
+For the Instagram API you need to sign up on Meta for Developers (https://developers.facebook.com/) and create your app. You also need a business Facebook and Instagram account to use the API. Once you have generated your access token, you can retrieve your Facebook ID via an API call (https://graph.facebook.com/v20.0/me/accounts?access_token={{accessToken}}). You can then use this ID to retrieve your Instagram Business Account ID (https://graph.facebook.com/v20.0/{{facebookID}}?access_token={{accessToken}}&fields=instagram_business_account). Save your Instagram ID and your access token to your <b>.env</b>-file.
+
+```
+INSTAGRAM_PROFILE_ID=
+INSTAGRAM_ACCESS_TOKEN=
+```
+
+To initialize your Instagram data run:
+
+> php artisan app:instagram
+
+<br>
+Now, all your social media channels should be visible on the website.
+
+# Job Scheduler
+
+The data will be regularly requested by API in scheduled jobs defined in <b>routes/console.php</b>. Don't forget to enable jobs in your crontab.
+
+```
+* * * * * cd /PATH_TO_YOUR_WORKSPACE/Laravel-SocialMediaChannels/ && php artisan schedule:run >> /dev/null 2>&1
+```
