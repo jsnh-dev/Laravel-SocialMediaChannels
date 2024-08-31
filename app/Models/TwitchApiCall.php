@@ -13,9 +13,7 @@ class TwitchApiCall extends Model
     protected $guarded = ['id'];
 
     protected $clientId;
-    protected $clientSecret;
     protected $bearerToken;
-    protected $redirectUri;
 
     public $result;
 
@@ -25,9 +23,7 @@ class TwitchApiCall extends Model
     public function __construct()
     {
         $this->clientId = env('TWITCH_CLIENT_ID');
-        $this->clientSecret = env('TWITCH_CLIENT_SECRET');
         $this->bearerToken = env('TWITCH_BEARER_TOKEN');
-        $this->redirectUri = env('TWITCH_REDIRECT_URI');
     }
 
     public function makeRequest()

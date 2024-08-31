@@ -47,7 +47,7 @@ class Twitch extends Command
             $lastApiCallExceeded = true;
         }
 
-        $url = 'https://api.twitch.tv/helix/users?login=' . env('TWITCH_LOGIN');
+        $url = 'https://api.twitch.tv/helix/users?login=' . env('TWITCH_USERNAME');
 
         $apiCall = $this->createApiCall($url, 'users');
 

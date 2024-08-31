@@ -28,7 +28,7 @@ class TwitchStream extends Command
      */
     public function handle()
     {
-        $url = 'https://api.twitch.tv/helix/users?login=' . env('TWITCH_LOGIN');
+        $url = 'https://api.twitch.tv/helix/users?login=' . env('TWITCH_USERNAME');
 
         $apiCall = $this->createApiCall($url, 'users');
 

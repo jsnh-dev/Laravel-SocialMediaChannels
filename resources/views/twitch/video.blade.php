@@ -62,7 +62,7 @@
 
             <a class="post-details-external-link text-dark text-hover mx-2"
                @if($video instanceof \App\Models\TwitchClip)
-               href="https://www.twitch.tv/{{ env('TWITCH_LOGIN') }}/clip/{{ $video->twitch_id }}"
+               href="https://www.twitch.tv/{{ env('TWITCH_USERNAME') }}/clip/{{ $video->twitch_id }}"
                @else
                href="https://www.twitch.tv/videos/{{ $video->twitch_id }}"
                @endif

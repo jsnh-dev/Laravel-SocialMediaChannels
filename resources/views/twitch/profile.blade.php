@@ -42,7 +42,7 @@
             @endif
 
             <a class="btn btn-twitch font-weight-600 me-4 hide-for-small-down"
-               href="https://www.twitch.tv/{{ env('TWITCH_LOGIN') }}"
+               href="https://www.twitch.tv/{{ env('TWITCH_USERNAME') }}"
                target="_blank">
                 <div>
                     <i class="fa-regular fa-heart text-white"></i>
@@ -58,7 +58,7 @@
             </button>
 
             <a class="post-details-external-link text-dark text-hover"
-               href="https://www.twitch.tv/{{ env('TWITCH_LOGIN') }}/{{ $tab ?? request()->tab ?? '' }}"
+               href="https://www.twitch.tv/{{ env('TWITCH_USERNAME') }}/{{ $tab ?? request()->tab ?? '' }}"
                title="{{ __('Open on Twitch') }}"
                target="_blank">
                 <i class="fa-solid fa-arrow-up-right-from-square"></i>

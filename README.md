@@ -2,6 +2,8 @@
 <small>Created: 2024-08-31</small><br>
 <small>Last update: 2024-08-31</small>
 
+<br> 
+
 # Permissions
 
 After installing Laravel, you may need to configure some permissions.
@@ -9,6 +11,8 @@ Directories within the <b>storage</b> and the <b>bootstrap/cache</b> directories
 
 > sudo chgrp www-data storage/ bootstrap/cache/ -R<br>
 > sudo chmod g+ws storage/ bootstrap/cache/ -R
+
+<br> 
 
 # Project Settings
 
@@ -45,9 +49,13 @@ Then use the migration script to migrate all tables.
 
 Now, your project should already be accessible in the browser.  
 
+<br> 
+
 # API Settings
 
 To fill your website with data, you need to setup the desired APIs.
+
+<br> 
 
 ### X
 
@@ -63,13 +71,14 @@ X_ACCESS_TOKEN_SECRET=
 For embedding your timeline you need to define your username.
 
 ```
-X_SCREEN_NAME=
+X_USERNAME=
 ```
 
 To initialize your X data run:
 
 > php artisan app:x
 
+<br> 
 
 ### Twitch
 
@@ -83,12 +92,14 @@ TWITCH_BEARER_TOKEN=
 Further, you need to define your username for the API calls and for embedding the live stream and chat.
 
 ```
-TWITCH_LOGIN=
+TWITCH_USERNAME=
 ```
 
 To initialize your Twitch data run:
 
 > php artisan app:twitch
+
+<br> 
 
 ### YouTube
 
@@ -115,6 +126,8 @@ To initialize your YouTube data run:
 
 > php artisan app:youtube
 
+<br> 
+
 ### Instagram
 
 For the Instagram API you need to sign up on Meta for Developers (https://developers.facebook.com/) and create your app. You also need a business Facebook and Instagram account to use the API. Once you have generated your access token, you can retrieve your Facebook ID via an API call (https://graph.facebook.com/v20.0/me/accounts?access_token={{accessToken}}). You can then use this ID to retrieve your Instagram Business Account ID (https://graph.facebook.com/v20.0/{{facebookID}}?access_token={{accessToken}}&fields=instagram_business_account). Save your Instagram ID and your access token to your <b>.env</b>-file.
@@ -128,8 +141,9 @@ To initialize your Instagram data run:
 
 > php artisan app:instagram
 
-<br>
 Now, all your social media channels should be visible on the website.
+
+<br> 
 
 # Job Scheduler
 

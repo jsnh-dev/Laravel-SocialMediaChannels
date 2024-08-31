@@ -5,7 +5,7 @@
     @endif
 >
     <iframe id="liveChat"
-            src="https://www.twitch.tv/embed/{{ env('TWITCH_LOGIN') }}/chat?parent=localhost{{ session('darkmode') ? '&darkpopout' : '' }}"
+            src="https://www.twitch.tv/embed/{{ env('TWITCH_USERNAME') }}/chat?parent=localhost{{ session('darkmode') ? '&darkpopout' : '' }}"
             sandbox="allow-modals allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-storage-access-by-user-activation"
             height="100%"
             width="100%">

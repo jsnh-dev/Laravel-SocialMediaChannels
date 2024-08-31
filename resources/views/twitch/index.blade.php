@@ -18,7 +18,7 @@
 
         <div class="twitch">
 
-            <input type="hidden" id="username" value="{{ env('TWITCH_LOGIN') }}">
+            <input type="hidden" id="username" value="{{ env('TWITCH_USERNAME') }}">
 
             @if(isset($video) && $video)
                 <button type="button"
