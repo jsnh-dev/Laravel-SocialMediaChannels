@@ -115,13 +115,6 @@ Set your YouTube Channel ID.
 YOUTUBE_ID=
 ```
 
-Due to API restrictions, you must define two additional mandatory variables. With this setting you will be able to synchronize a maximum of 2400 videos with 100 comments (plus their replies) without running into restriction errors. 
-
-```
-YOUTUBE_MAX_VIDEOS=2400
-YOUTUBE_MAX_COMMENTS=100
-```
-
 To initialize your YouTube data run:
 
 > php artisan app:youtube

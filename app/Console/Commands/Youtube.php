@@ -51,7 +51,7 @@ class Youtube extends Command
 
             foreach ($runsPerDayArray as $runsPerDay) {
 
-                if ($lastRun->total_videos_count > env('YOUTUBE_MAX_VIDEOS')/$runsPerDay &&
+                if ($lastRun->total_videos_count > (env('YOUTUBE_MAX_VIDEOS')??2400)/$runsPerDay &&
                     $lastRun->date >= now()->subHours(24/$runsPerDay)->subMinutes(30)->format('Y-m-d H:i:s')) {
 
                     return;
@@ -132,7 +132,7 @@ class Youtube extends Command
 
     private function handleVideos($url = null, $params = [])
     {
-        if ($this->totalVideosCount >= env('YOUTUBE_MAX_VIDEOS')) {
+        if ($this->totalVideosCount >= (env('YOUTUBE_MAX_VIDEOS') ?? 2400)) {
             return;
         }
 
@@ -193,7 +193,7 @@ class Youtube extends Command
 
     private function handleComments($id, $url = null, $params = [])
     {
-        if ($this->totalCommentsCount >= env('YOUTUBE_MAX_COMMENTS')) {
+        if ($this->totalCommentsCount >= (env('YOUTUBE_MAX_COMMENTS') ?? 100 )) {
             return;
         }
 
