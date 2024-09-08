@@ -1,6 +1,6 @@
 <small>Author: Janic Scheinhardt (info@jsnh.dev)</small><br>
 <small>Created: 2024-08-31</small><br>
-<small>Last update: 2024-08-31</small>
+<small>Last update: 2024-09-08</small>
 
 <br> 
 
@@ -133,6 +133,21 @@ INSTAGRAM_ACCESS_TOKEN=
 To initialize your Instagram data run:
 
 > php artisan app:instagram
+
+<br> 
+
+### Bluesky
+
+To use the Bluesky API you only need a normal user account (https://bsky.app/). Add your full handle (example.bsky.social) as identifier and your password (or an app password if you have set one) to your <b>.env</b>-file.
+
+```
+BLUESKY_IDENTIFIER=
+BLUESKY_PASSWORD=
+```
+
+To initialize your Bluesky data run:
+
+> php artisan app:bluesky
 
 Now, all your social media channels should be visible on the website.
 
