@@ -12,5 +12,8 @@
         @if($profile->instagram)
             @include('home.instagram', ['profile' => $profile->instagram])
         @endif
+        @if($profile->bluesky)
+            @include('home.bluesky', ['profile' => $profile->bluesky])
+        @endif
     </div>
 @endif

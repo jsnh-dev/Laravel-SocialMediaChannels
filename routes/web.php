@@ -46,3 +46,12 @@ Route::get('/instagram/post/{id}/share', [App\Http\Controllers\InstagramControll
 Route::get('/instagram/reels', [App\Http\Controllers\InstagramController::class, 'reels'])->name('instagram.reels');
 Route::get('/instagram/reel/{id}', [App\Http\Controllers\InstagramController::class, 'reel'])->name('instagram.reel');
 Route::get('/instagram/reel/{id}/share', [App\Http\Controllers\InstagramController::class, 'shareReel'])->name('instagram.reel.share');
+
+Route::get('/bluesky', [App\Http\Controllers\BlueskyController::class, 'index'])->name('bluesky');
+Route::get('/bluesky/profile', [App\Http\Controllers\BlueskyController::class, 'profile'])->name('bluesky.profile');
+Route::get('/bluesky/profile/share', [App\Http\Controllers\BlueskyController::class, 'shareProfile'])->name('bluesky.profile.share');
+Route::get('/bluesky/posts', [App\Http\Controllers\BlueskyController::class, 'posts'])->name('bluesky.posts');
+Route::get('/bluesky/post/{id}', [App\Http\Controllers\BlueskyController::class, 'post'])->name('bluesky.post');
+Route::get('/bluesky/post/{id}/comments', [App\Http\Controllers\BlueskyController::class, 'comments'])->name('bluesky.post.comments');
+Route::get('/bluesky/post/{postId}/comment/{id}/replies', [App\Http\Controllers\BlueskyController::class, 'replies'])->name('bluesky.post.comment.replies');
+Route::get('/bluesky/post/{id}/share', [App\Http\Controllers\BlueskyController::class, 'sharePost'])->name('bluesky.post.share');

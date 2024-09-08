@@ -17,7 +17,7 @@ class TwitchController extends Controller
      */
     public function index(): \Illuminate\Contracts\View\View
     {
-        return view('twitch.index')->with(['footer' => false]);
+        return view('twitch.index');
     }
 
     /**
@@ -126,7 +126,7 @@ class TwitchController extends Controller
 
         return request()->ajax()
             ? response()->json(['view' => view('twitch.event')->with($data)->render()])
-            : view('twitch.index')->with(['event' => $event, 'footer' => false]);
+            : view('twitch.index')->with(['event' => $event]);
     }
 
     /**
@@ -246,7 +246,7 @@ class TwitchController extends Controller
 
         return request()->ajax()
             ? response()->json(['view' => view('twitch.video')->with(['video' => $video])->render()])
-            : view('twitch.index')->with(['video' => $video, 'footer' => false]);
+            : view('twitch.index')->with(['video' => $video]);
     }
 
     /**

@@ -27,9 +27,4 @@ class InstagramMedia extends Model
     {
         return $this->hasMany(InstagramMedia::class, 'instagram_parent_id', 'instagram_id');
     }
-
-    public function getPublishedAtAttribute()
-    {
-        return $this->timestamp;
-    }
 }

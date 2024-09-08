@@ -150,7 +150,7 @@ window.initPostModalTrigger = function initPostModalTrigger(trigger) {
     $(modalSelector).attr('data-route', trigger.data('route'));
     $(modalSelector).attr('data-close-route', trigger.data('close-route'));
 
-    if (trigger.hasClass('youtube')) {
+    if (trigger.hasClass('youtube') || trigger.hasClass('bluesky')) {
         $(modalSelector).find('.modal-dialog').addClass('max-height');
     } else {
         $(modalSelector).find('.modal-dialog').removeClass('max-height');
@@ -260,7 +260,7 @@ window.initPostCommentRepliesCallback = function initPostCommentRepliesCallback(
 }
 
 window.resizePostDetails = function resizePostDetails() {
-    if ($('.post-details-image:visible').length) {
+    if ($('.post-details-image').length && $('.post-details-image:visible').length || !$('.post-details-image').length) {
         $('.post-details-comments-wrapper').css('height', $('.post-details-image:visible').height() + 'px');
         $('.post-details-comments-wrapper').removeClass('opacity-0');
         $('.modal-dialog:visible').css('width', '');

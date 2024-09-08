@@ -19,7 +19,6 @@
         "clipboard": "^2.0.11",
         "jquery": "^3.7.1",
         "jquery-ui": "^1.13.3",
-        "masonry-layout": "^4.2.2",
         "owl.carousel": "^2.3.4"
     }
 }

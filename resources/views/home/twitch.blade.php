@@ -1,7 +1,7 @@
 <div class="d-flex flex-wrap-reverse h-100">
     <div class="col-12 col-md-6 d-flex">
         <div class="my-3 mx-auto me-md-3 me-lg-3 pe-lg-3 my-md-auto">
-            <div class="card d-flex flex-column align-items-start p-3 mw-600px">
+            <div class="card d-flex flex-column align-items-start p-3 mw-450px">
                 <h2 class="profile-name font-size-175rem mb-2">
                     {{ $profile->display_name }}
                 </h2>

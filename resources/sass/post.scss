@@ -1,4 +1,4 @@
-.twitch, .youtube, .instagram {
+.twitch, .youtube, .instagram, .bluesky {
 
   .posts, .reels {
     .post-wrapper {
@@ -167,6 +167,43 @@
       }
       .post-details-comment-replies-load-trigger {
         display: flex;
+      }
+    }
+  }
+
+  &.bluesky {
+
+    .post-wrapper {
+      float: left;
+      display: flex;
+      padding: 1rem;
+      margin: 0 0.5rem 1rem;
+      border-radius: 0;
+      width: calc(25% - 1rem);
+      transition: width 0.3s;
+    }
+
+    @media (max-width: 1199px) {
+      .post-wrapper {
+        width: calc(100% / 3 - 1rem);
+      }
+    }
+
+    @media (max-width: 991px) {
+      .post-wrapper {
+        width: calc(50% - 1rem);
+      }
+    }
+
+    @media (max-width: 767px) {
+      .post-wrapper {
+        width: calc(50% - 1rem);
+      }
+    }
+
+    @media (max-width: 575px) {
+      .post-wrapper {
+        width: calc(100% - 1rem);
       }
     }
   }

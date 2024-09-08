@@ -1,3 +1,7 @@
+.fa-bluesky, .text-bluesky {
+  color: #0085ff;
+}
+
 .fa-linkedin, .text-linkedin {
   color: #0a66c2;
 }
@@ -147,8 +151,8 @@
   min-width: 50% !important;
 }
 
-.mw-600px {
-  max-width: 600px !important;
+.mw-450px {
+  max-width: 450px !important;
 }
 
 .mh-33 {
@@ -196,6 +200,22 @@
   overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.text-vertical-overflow-ellipsis-5 {
+  text-overflow: ellipsis !important;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+}
+
+.text-vertical-overflow-ellipsis-10 {
+  text-overflow: ellipsis !important;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 10;
   -webkit-box-orient: vertical;
 }
 

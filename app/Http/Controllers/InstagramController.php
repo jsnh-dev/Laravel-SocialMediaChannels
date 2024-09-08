@@ -14,11 +14,7 @@ class InstagramController extends Controller
      */
     public function index(): \Illuminate\Contracts\View\View
     {
-        $data = [
-            'description' => InstagramProfile::first()->biography ?? ''
-        ];
-
-        return view('instagram.index')->with($data);
+        return view('instagram.index');
     }
 
     /**

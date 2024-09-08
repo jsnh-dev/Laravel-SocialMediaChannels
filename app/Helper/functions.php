@@ -103,12 +103,8 @@ if (! function_exists('textToHtml')) {
 
         $urls = [];
         foreach ($matches[0] as $key => $match) {
-            if ($key == array_key_last($matches[0])) {
-                $text = str_replace($match, '', $text);
-            } else {
-                $text = str_replace($match, '<a href="'.$match.'" target="_blank" title="'.__('open').'">'.$match.'</a>', $text);
-                $urls[] = $match;
-            }
+            $text = str_replace($match, '<a href="'.$match.'" target="_blank" title="'.__('open').'">'.$match.'</a>', $text);
+            $urls[] = $match;
         }
 
         return $text;

@@ -27,9 +27,4 @@ class TwitchClip extends Model
     {
         return $this->belongsTo(TwitchUser::class, 'twitch_creator_id', 'twitch_id');
     }
-
-    public function getPublishedAtAttribute()
-    {
-        return $this->created_at;
-    }
 }

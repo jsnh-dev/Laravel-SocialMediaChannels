@@ -4,8 +4,6 @@
     - Instagram
 @endsection
 
-@section('description'){{ $description ?? '' }}@endsection
-
 @section('script')
     @vite(['resources/js/post.js', 'resources/js/instagram.js'])
 @endsection
