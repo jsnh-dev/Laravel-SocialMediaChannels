@@ -48,7 +48,7 @@
             <div class="post-details-caption flex-0 p-3 border-bottom mh-50 d-flex flex-column">
                 <h1 class="font-size-08rem font-weight-900 mb-2">{{ $profile->username }}</h1>
                 @if($post->caption)
-                    <div class="line-height-1-2 mb-2 overflow-auto">{!! textToHtml($post->caption) !!}</div>
+                    <div class="line-height-1-2 mb-2 overflow-auto">{!! textWithInstagramLinks(textToHtml($post->caption)) !!}</div>
                 @endif
                 @if($post->timestamp)
                     <div class="post-details-timestamp font-size-08rem text-secondary">
@@ -71,11 +71,7 @@
                     {{ $post->comments_count }}
                 </a>
                 <button type="button"
-                        @if(isset($home) && $home)
-                            data-route="{{ route('home.post.share', ['type' => 'instagram', 'id' => $post->instagram_id]) }}"
-                        @else
-                            data-route="{{ route('instagram.' . (isset($reel) && $reel ? 'reel' : 'post' ) . '.share', ['id' => $post->instagram_id]) }}"
-                        @endif
+                        data-route="{{ route('instagram.' . (isset($reel) && $reel ? 'reel' : 'post' ) . '.share', ['id' => $post->instagram_id]) }}"
                         class="share-trigger btn p-0 text-nowrap text-dark text-decoration-none text-hover me-3">
                     <i class="fa-regular fa-paper-plane"></i>
                 </button>

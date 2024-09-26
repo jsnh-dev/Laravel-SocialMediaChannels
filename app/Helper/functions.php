@@ -110,3 +110,43 @@ if (! function_exists('textToHtml')) {
         return $text;
     }
 }
+
+if (! function_exists('textWithInstagramLinks')) {
+    /**
+     * @param $text
+     * @param bool $link
+     * @return string
+     */
+    function textWithInstagramLinks($text, $link = true): string
+    {
+        preg_match_all('/(@)\w+/', $text, $matches_at);
+        preg_match_all('/(?<=@)\w+/', $text, $matches_at_after);
+        foreach ($matches_at[0] as $key => $match) {
+            $urls[] = $match;
+            $text = str_replace(
+                $match,
+                ($link
+                    ? '<a href="https://www.instagram.com/' . $matches_at_after[0][$key] . '" target="_blank" title="' . __('go to profile') . '">' . $match . '</a>'
+                    : '<span class="text-link">' . $match . '</span>'
+                ),
+                $text
+            );
+        }
+
+        preg_match_all('/(#)[0-9a-zA-ZäöüÄÖÜ]+/', $text, $matches_at);
+        preg_match_all('/(?<=#)[0-9a-zA-ZäöüÄÖÜ]+/', $text, $matches_at_after);
+        foreach ($matches_at[0] as $key => $match) {
+            $urls[] = $match;
+            $text = preg_replace(
+                '/#\b' . $matches_at_after[0][$key] . '\b/',
+                ($link
+                    ? '<a href="https://www.instagram.com/explore/tags/' . $matches_at_after[0][$key] . '" target="_blank">' . $match . '</a>'
+                    : '<span class="text-link">' . $match . '</span>'
+                ),
+                $text
+            );
+        }
+
+        return $text;
+    }
+}
