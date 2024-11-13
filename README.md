@@ -1,6 +1,10 @@
 <small>Author: Janic Scheinhardt (info@jsnh.dev)</small><br>
 <small>Created: 2024-08-31</small><br>
-<small>Last update: 2024-09-08</small>
+<small>Last update: 2024-11-13</small>
+
+<br>
+
+![Homepage](doc/1-home.png)
 
 <br> 
 
