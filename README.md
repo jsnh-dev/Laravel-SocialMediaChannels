@@ -78,6 +78,10 @@ To initialize your X data run:
 
 > php artisan app:x
 
+<br>
+
+![X Profile](doc/2-x.png)
+
 <br> 
 
 ### Twitch
@@ -99,6 +103,10 @@ To initialize your Twitch data run:
 
 > php artisan app:twitch
 
+<br>
+
+![Twitch Profile](doc/3-twitch.png)
+
 <br> 
 
 ### YouTube
@@ -119,6 +127,10 @@ To initialize your YouTube data run:
 
 > php artisan app:youtube
 
+<br>
+
+![YouTube Profile](doc/4-youtube.png)
+
 <br> 
 
 ### Instagram
@@ -134,6 +146,10 @@ To initialize your Instagram data run:
 
 > php artisan app:instagram
 
+<br>
+
+![Instagram Profile](doc/5-instagram.png)
+
 <br> 
 
 ### Bluesky
@@ -148,6 +164,12 @@ BLUESKY_PASSWORD=
 To initialize your Bluesky data run:
 
 > php artisan app:bluesky
+
+<br>
+
+![Bluesky Profile](doc/6-bluesky.png)
+
+<br>
 
 Now, all your social media channels should be visible on the website.
 
