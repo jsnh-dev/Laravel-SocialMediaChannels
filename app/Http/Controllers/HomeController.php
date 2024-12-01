@@ -15,14 +15,6 @@ class HomeController extends Controller
      */
     public function index(): \Illuminate\Contracts\View\View
     {
-        return view('home.index');
-    }
-
-    /**
-     * @return \Illuminate\Http\JsonResponse
-     */
-    public function teaser(): \Illuminate\Http\JsonResponse
-    {
         $profile = new \stdClass();
 
         $profile->x = XProfile::first();
@@ -31,8 +23,6 @@ class HomeController extends Controller
         $profile->instagram = InstagramProfile::first();
         $profile->bluesky = BlueskyProfile::first();
 
-        return response()->json([
-            'view' => view('home.teaser')->with(['profile' => $profile])->render()
-        ]);
+        return view('home.index')->with(['profile' => $profile]);
     }
 }
