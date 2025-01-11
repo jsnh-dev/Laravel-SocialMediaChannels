@@ -1,6 +1,6 @@
 <small>Author: Janic Scheinhardt (info@jsnh.dev)</small><br>
 <small>Created: 2024-08-31</small><br>
-<small>Last update: 2024-11-13</small>
+<small>Last update: 2025-01-11</small>
 
 <br>
 
@@ -61,32 +61,24 @@ To fill your website with data, you need to setup the desired APIs.
 
 <br> 
 
-### X
+### Bluesky
 
-Create an account on the Developer Platform for X (https://developer.x.com). Navigate to the Developer Portal to create a new project. Get your API keys and define them in the <b>.env</b>-file.
-
-```
-X_API_KEY=
-X_API_KEY_SECRET=
-X_ACCESS_TOKEN=
-X_ACCESS_TOKEN_SECRET=
-```
-
-For embedding your timeline you need to define your username.
+To use the Bluesky API you only need a normal user account (https://bsky.app/). Add your full handle (example.bsky.social) as identifier and your password (or an app password if you have set one) to your <b>.env</b>-file.
 
 ```
-X_USERNAME=
+BLUESKY_IDENTIFIER=
+BLUESKY_PASSWORD=
 ```
 
-To initialize your X data run:
+To initialize your Bluesky data run:
 
-> php artisan app:x
+> php artisan app:bluesky
 
 <br>
 
-![X Profile](doc/2-x.png)
+![Bluesky Profile](doc/6-bluesky.png)
 
-<br> 
+<br>
 
 ### Twitch
 
@@ -155,25 +147,6 @@ To initialize your Instagram data run:
 ![Instagram Profile](doc/5-instagram.png)
 
 <br> 
-
-### Bluesky
-
-To use the Bluesky API you only need a normal user account (https://bsky.app/). Add your full handle (example.bsky.social) as identifier and your password (or an app password if you have set one) to your <b>.env</b>-file.
-
-```
-BLUESKY_IDENTIFIER=
-BLUESKY_PASSWORD=
-```
-
-To initialize your Bluesky data run:
-
-> php artisan app:bluesky
-
-<br>
-
-![Bluesky Profile](doc/6-bluesky.png)
-
-<br>
 
 Now, all your social media channels should be visible on the website.
 

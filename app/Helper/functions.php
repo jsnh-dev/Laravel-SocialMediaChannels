@@ -19,16 +19,8 @@ if (! function_exists('getShareElements')) {
             'text=' . $text . '&' .
             'shareUrl=' . $url . '';
 
-        $x = new \stdClass();
-        $x->icon = 'fa-x-twitter text-dark';
-        $x->text = 'Share on X';
-        $x->url = 'https://x.com/intent/post?' .
-            'text=' . $text . '&' .
-            'url=' . $url . '';
-
         return [
-            'linkedin' => $linkedin,
-            'x' => $x
+            'linkedin' => $linkedin
         ];
     }
 }
