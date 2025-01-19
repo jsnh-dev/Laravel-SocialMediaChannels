@@ -1,6 +1,6 @@
 <small>Author: Janic Scheinhardt (info@jsnh.dev)</small><br>
 <small>Created: 2024-08-31</small><br>
-<small>Last update: 2025-01-11</small>
+<small>Last update: 2025-01-19</small>
 
 <br>
 
@@ -76,7 +76,7 @@ To initialize your Bluesky data run:
 
 <br>
 
-![Bluesky Profile](doc/6-bluesky.png)
+![Bluesky Profile](doc/2-bluesky.png)
 
 <br>
 
